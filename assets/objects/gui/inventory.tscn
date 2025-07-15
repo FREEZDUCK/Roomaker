@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://bcrr5xvr045au"]
+[gd_scene load_steps=8 format=3 uid="uid://bcrr5xvr045au"]
 
 [ext_resource type="Script" path="res://assets/src/gui/inventory.gd" id="1_tqelo"]
 [ext_resource type="Texture2D" uid="uid://b84xe72gsv3x6" path="res://assets/sprites/gui/panels/gothic_rect_active.png" id="2_uo5ri"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://br5lwx1q0fkpe" path="res://assets/sprites/gui/panels/gothic_rect.png" id="3_fjuhu"]
 [ext_resource type="Texture2D" uid="uid://b0lk2jx46sulu" path="res://assets/sprites/gui/panels/dark_rect.png" id="4_nrqh8"]
 [ext_resource type="PackedScene" uid="uid://cs4dak0qncw38" path="res://assets/objects/gui/text_box.tscn" id="5_bncn7"]
+[ext_resource type="PackedScene" uid="uid://dpsiyij8g72b" path="res://assets/objects/gui/active_slot.tscn" id="7_13lrr"]
 
 [node name="inventory" type="Control"]
 layout_mode = 3
@@ -16,8 +17,8 @@ slot_default = ExtResource("3_fjuhu")
 
 [node name="inven_back_panel" type="NinePatchRect" parent="."]
 layout_mode = 1
-offset_left = 118.0
-offset_right = 274.0
+offset_left = 120.0
+offset_right = 276.0
 offset_bottom = 130.0
 texture = ExtResource("4_nrqh8")
 patch_margin_left = 3
@@ -68,43 +69,30 @@ offset_right = 4.0
 offset_bottom = 7.0
 back_trans = true
 
-[node name="slot_grid2" type="GridContainer" parent="."]
+[node name="passive_slot" type="GridContainer" parent="."]
 layout_mode = 0
 offset_left = 182.0
 offset_top = 29.0
-offset_right = 294.0
+offset_right = 248.0
 offset_bottom = 51.0
 theme_override_constants/h_separation = 22
 theme_override_constants/v_separation = 1
 columns = 3
 
-[node name="inventory_slot" parent="slot_grid2" instance=ExtResource("3_6l356")]
+[node name="passive_slot" parent="passive_slot" instance=ExtResource("3_6l356")]
 layout_mode = 2
 
-[node name="inventory_slot2" parent="slot_grid2" instance=ExtResource("3_6l356")]
+[node name="passive_slot2" parent="passive_slot" instance=ExtResource("3_6l356")]
 layout_mode = 2
 
-[node name="inventory_slot3" parent="slot_grid2" instance=ExtResource("3_6l356")]
+[node name="passive_slot3" parent="passive_slot" instance=ExtResource("3_6l356")]
 layout_mode = 2
 
-[node name="inventory_slot" parent="." instance=ExtResource("3_6l356")]
-visible = false
-offset_left = 28.0
-offset_top = 14.0
-offset_right = 28.0
-offset_bottom = 14.0
-
-[node name="panel" type="NinePatchRect" parent="."]
-layout_mode = 0
+[node name="active_slot" parent="." instance=ExtResource("7_13lrr")]
 offset_left = 142.0
-offset_top = 19.0
-offset_right = 174.0
-offset_bottom = 51.0
-texture = ExtResource("3_fjuhu")
-patch_margin_left = 4
-patch_margin_top = 4
-patch_margin_right = 4
-patch_margin_bottom = 10
+offset_top = 24.0
+offset_right = 176.0
+offset_bottom = 58.0
 
 [node name="des_back_panel" type="NinePatchRect" parent="."]
 layout_mode = 0
