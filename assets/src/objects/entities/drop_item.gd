@@ -4,8 +4,10 @@ class_name DropItem
 
 var itemName : String
 var itemDisplayName : String
+var itemSubName : String
 var itemDes : String
 var itemType : String
+var itemAbility : String
 
 var time : float = 0
 

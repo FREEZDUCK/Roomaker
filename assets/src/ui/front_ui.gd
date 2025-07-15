@@ -76,7 +76,7 @@ func control_item_des():
 		
 	if Info.near_dropItem != null:
 		item_des.visible = true
-		item_des.text = Command.stylize_description(Info.near_dropItem.itemDisplayName, Info.near_dropItem.itemType, Info.near_dropItem.itemDes, "dropitem")
+		item_des.text = Command.stylize_description(Info.near_dropItem.itemDisplayName, Info.near_dropItem.itemSubName, Info.near_dropItem.itemType, Info.near_dropItem.itemDes, Info.near_dropItem.itemAbility, "dropitem")
 		Info.near_dropItem.find_child("outline").visible = true
 	elif Info.near_dropItem == null:
 		item_des.visible = false

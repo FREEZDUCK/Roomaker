@@ -22,6 +22,7 @@ y_sort_enabled = true
 script = ExtResource("2_udt0u")
 
 [node name="player" parent="all_entities" instance=ExtResource("1_553wh")]
+position = Vector2(88, 40)
 
 [node name="chest" parent="all_entities" instance=ExtResource("4_e7ix6")]
 position = Vector2(24, 0)
