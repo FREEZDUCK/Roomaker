@@ -1,6 +1,7 @@
-{ 
-	"name": "붉은 새벽", 
+{
+	"name": "붉은 새벽",
+	"subname": "새벽의 룬",
 	"des": "어둠을 뚫고 세상에 \n가장 먼저 떨어지는 빛.",
-	"type": "passive\n새벽의 룬",
+	"type": "passive",
 	"ability": "장착시 효과:\n힐 아이템 획득량 증가"
 }

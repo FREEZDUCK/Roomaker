@@ -1,7 +1,8 @@
 {
 	"name": "플루토스의 눈",
+	"subname" : "재산의 룬",
 	"des": "플루토스가 인간의 욕망을 지켜보던 \n왼쪽 눈이다.", 
-	"type": "passive\n 재산의 룬",
+	"type": "passive",
 	"ability": "장착시 효과:\n골드 획득량 증가",
 	"func" : "up_gold"
 }

@@ -1,6 +1,7 @@
-{ 
+{
 	"name": "아직 타고있는 횃불심",
+	"subname": "횃불의 룬",
 	"des": "닿는 모든 것에 불씨를 남긴다.",
-	"type": "passive\n횃불의 룬",
+	"type": "passive",
 	"ability": "장착시 효과:\n기본공격에 발화효과"
 }

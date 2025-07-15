@@ -1,6 +1,7 @@
 {
 	"name": "오록스의 뿔",
+	"subname": "소의 룬",
 	"des": "복종 대신 돌진을 택한 야수의 \n잊혀진 뿔이다.",
-	"type": "passive \n소의 룬",
+	"type": "passive",
 	"ability": "장착시 효과:\n공격력 증가"
 }

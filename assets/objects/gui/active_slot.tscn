@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://dpsiyij8g72b"]
+
+[ext_resource type="Script" path="res://assets/src/gui/inventory_slot.gd" id="1_3185y"]
+[ext_resource type="Texture2D" uid="uid://d3vyjye5jdc0l" path="res://assets/sprites/gui/panels/active_rect.png" id="2_nsqsy"]
+
+[node name="active_slot" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 34.0
+offset_bottom = 34.0
+script = ExtResource("1_3185y")
+
+[node name="panel" type="NinePatchRect" parent="."]
+layout_mode = 0
+offset_right = 34.0
+offset_bottom = 34.0
+texture = ExtResource("2_nsqsy")
+
+[node name="display" type="Sprite2D" parent="."]
+position = Vector2(17, 17)
+scale = Vector2(1.5, 1.482)
