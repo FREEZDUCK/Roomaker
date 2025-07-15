@@ -14,6 +14,7 @@ var max_hp : float
 var direction : Vector2
 var last_dir = 'front' # or "side", "back"
 var is_attacking : bool = false
+var is_dashing : bool = false
 
 var allow_dash : bool = false
 var dash_timer : float = 0
@@ -54,6 +55,9 @@ func melee_attack():
 
 func control_of_dir():
 	# 방향에 따른 애니메이션, 공격 범위 위치, 이미지 반전 조정
+	if is_dashing == true:
+		return
+	
 	if direction.x > 0:
 		anim_sp.play("move_side")
 		last_dir = 'side'
@@ -83,13 +87,17 @@ func control_attackAnim():
 			attack_collision.disabled = true
 
 	if Input.is_action_just_pressed("melee_attack"):
+		Info.player_hp += 1
 		melee_attack()
 	
 	# 구르기 코드인데 아직 불안정 함(추후 수정 or 삭제 예정)
 	if Input.is_action_just_pressed("dash"):
 		if allow_dash == true:
+			is_dashing = true
 			var power = 270 # 구르기 추가 예정
 			Command.shake_camera(Info.player.find_child("cam"), 0.1,  0.5)
+			anim_sp.play("roll_" + last_dir)
+			Sound.force_play("clothes_drop", -2)
 			if last_dir == 'front':
 				velocity.y = power
 			elif last_dir == 'back':
@@ -113,7 +121,10 @@ func dash_charge(delta):
 func _on_animation_finished():
 	# 원래는 애니메이션이 끝나면 발동되는 함수이지만,
 	# move, idle은 반복 애니메이션 이므로 끝나지 않아, 끝나는 애니매이션은 attack 졸류뿐
-	is_attacking = false
+	if "attack" in anim_sp.animation:
+		is_attacking = false
+	if "roll" in anim_sp.animation:
+		is_dashing = false
 
 func _on_body_area_entered(area):
 	if area.get_parent() is Monster and area.name == 'attack': # 공격 준 상대가 몬스터 라면

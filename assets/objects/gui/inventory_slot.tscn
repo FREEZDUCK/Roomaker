@@ -1,17 +1,22 @@
-[gd_scene load_steps=2 format=3 uid="uid://m85kis37rje5"]
+[gd_scene load_steps=3 format=3 uid="uid://m85kis37rje5"]
 
-[ext_resource type="Texture2D" uid="uid://br5lwx1q0fkpe" path="res://assets/sprites/gui/panels/gothic_rect.png" id="1_yxhtq"]
+[ext_resource type="Script" path="res://assets/src/gui/inventory_slot.gd" id="1_f6ps6"]
+[ext_resource type="Texture2D" uid="uid://br5lwx1q0fkpe" path="res://assets/sprites/gui/panels/gothic_rect.png" id="2_jd570"]
 
 [node name="inventory_slot" type="Control"]
 layout_mode = 3
 anchors_preset = 0
+script = ExtResource("1_f6ps6")
 
 [node name="panel" type="NinePatchRect" parent="."]
 layout_mode = 0
 offset_right = 22.0
 offset_bottom = 22.0
-texture = ExtResource("1_yxhtq")
+texture = ExtResource("2_jd570")
 patch_margin_left = 4
 patch_margin_top = 4
 patch_margin_right = 4
-patch_margin_bottom = 4
+patch_margin_bottom = 10
+
+[node name="display" type="Sprite2D" parent="."]
+position = Vector2(11, 11)

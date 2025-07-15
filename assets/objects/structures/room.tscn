@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://i2h2jvi2vfi3"]
+
+[ext_resource type="Script" path="res://assets/src/objects/structures/room.gd" id="1_68v45"]
+[ext_resource type="PackedScene" uid="uid://mot8or7f4kfe" path="res://assets/objects/tiles.tscn" id="2_qnwqw"]
+
+[node name="room" type="Node2D"]
+script = ExtResource("1_68v45")
+
+[node name="tile" parent="." instance=ExtResource("2_qnwqw")]
+layer_0/tile_data = PackedInt32Array()

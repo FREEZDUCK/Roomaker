@@ -10,7 +10,7 @@ func _ready():
 		parent_texture_rect = get_parent().find_child("sp").texture.get_image().get_used_rect()
 
 	# 부모 노드의 콜리션 크기에 맞춰 그림자의 크기 조정 x에 비해 y크기는 적게 변함
-	$shadow.size.x = parent_texture_rect.size.x / 1.2
+	$shadow.size.x = parent_texture_rect.size.x / 1.5
 	$shadow.size.y = parent_texture_rect.size.y / 6
 	
 	# 위치 센터 조정

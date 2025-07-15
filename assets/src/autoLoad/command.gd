@@ -74,7 +74,7 @@ func summon_item(item_name : String, pos : Vector2):
 	if get_tree().current_scene.name != 'play_scene':
 		return
 	
-	var item_data = Cfile.get_jsonData("res://assets/data/items/" + item_name + ".json")
+	var item_data = Cfile.get_jsonData("res://assets/data/items/fragment/" + item_name + ".json")
 
 	if item_data == null:
 		Command.error('데이터에 없는 객체입니다.')
@@ -86,12 +86,46 @@ func summon_item(item_name : String, pos : Vector2):
 	
 	dropItem.find_child("sp").texture = load("res://assets/sprites/items/" + item_name + ".png")
 	
-	dropItem.itemId = item_name
-	dropItem.itemName = item_data["name"]
+	dropItem.itemName = item_name
+	dropItem.itemDisplayName = item_data["name"]
 	dropItem.itemDes = item_data["des"]
 	dropItem.itemType = item_data["type"]
+	dropItem.itemAbility = item_data["ability"]
 	
 	get_tree().current_scene.find_child("all_entities").add_child(dropItem)
+
+func new_room(room_id : int, dir : String = "up", type : String = "basic"):
+	# dir은 이제 생성 할 방의 방향 "left", "right", "up", "down"
+	# type는 방의 속성 : "water", "lava" .... 등
+	var rooms_data = Cfile.get_jsonData("res://assets/data/rooms.json")
+	var target_room_data = rooms_data[str(room_id)]
+	
+	var room_path = load("res://assets/objects/structures/room.tscn")
+	var room = room_path.instantiate()
+	
+	room.tile_data = target_room_data
+	get_tree().current_scene.find_child("all_rooms").add_child(room)
+	
+
+func give_item(item_name : String):
+	if get_tree().current_scene.name != 'play_scene':
+		return
+	elif Info.inventory.is_full == true: # 인벤토리가 꽉 차있다면
+		Command.error('인벤토리에 빈 공간이 없습니다.')
+		return
+	
+	var item_data = Cfile.get_jsonData("res://assets/data/items/fragment/" + item_name + ".json")
+
+	if item_data == null:
+		Command.error('데이터에 없는 아이템을 가져올 수 없습니다.')
+		return
+	
+	var blank_slots : Array = []
+	for slot in Info.inventory.slots:
+		if slot.held_itemName == "":
+			blank_slots.append(slot)
+	
+	blank_slots[0].held_itemName = item_name
 
 # 넉백 주는 함수 / 넉백을 주게 만든 대상, 넉백 받는 대상, 넉백 파워
 func apply_knockback(target_pos: Vector2, body: Node2D, force: float) -> void:
@@ -183,9 +217,23 @@ func error(text : String):
 	if get_tree().current_scene.name != 'play_scene':
 		return
 	
-	var error_text_path = load("res://assets/objects/gui/error_text.tscn")
+	var error_text_path = preload("res://assets/objects/gui/error_text.tscn")
 	var error_text = error_text_path.instantiate()
 	
 	error_text.error = text
 	get_tree().current_scene.find_child("front_ui").add_child(error_text)
 
+func stylize_description(itemName : String, itemType : String, itemDes : String, itemAbility : String, state : String):
+	# state는 이 아이템이 인벤에 있는 건지 drop아이템 상태인지 등등 판별
+	# state = "inventory" or "dropitem"
+	#var result_text = "[b]<" + itemName + ">[/b][color=#747474] ㅣ" + itemType + "[/color]\n\n" + itemDes
+	var result_text = "[b]<" + itemName + ">[/b][color=#747474] ㅣ" + itemType + "[/color]\n\n" + itemAbility + "\n\n[color=#999999]" + itemDes +"[/color]"
+	#var result_text = "[b]<" + itemName + ">[/b][color=#747474] ㅣ" + itemType + "[/color]\n\n" + "[color=#999999]" + itemDes + "[/color]\n\n" + itemAbility
+
+	
+	if state == "dropitem":
+		result_text += "\n\n[img]res://assets/sprites/gui/buttons/key_f.png[/img] [b] 줍기[/b]"
+	elif state == "inventory":
+		result_text += "\n\n[img]res://assets/sprites/gui/buttons/key_q.png[/img] [b] 버리기[/b]"
+		
+	return result_text

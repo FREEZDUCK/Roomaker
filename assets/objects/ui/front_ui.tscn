@@ -1,97 +1,24 @@
-[gd_scene load_steps=15 format=3 uid="uid://17k2bjua2osg"]
+[gd_scene load_steps=11 format=3 uid="uid://17k2bjua2osg"]
 
 [ext_resource type="Script" path="res://assets/src/ui/front_ui.gd" id="1_g3hkb"]
-[ext_resource type="Texture2D" uid="uid://cop1ylcxghex8" path="res://assets/sprites/gui/health.png" id="1_kaxaf"]
-[ext_resource type="Texture2D" uid="uid://di76rsw4h5ulk" path="res://assets/sprites/gui/progress_bar/under.png" id="2_1udac"]
 [ext_resource type="Texture2D" uid="uid://tatf430r4uay" path="res://assets/sprites/gui/heart/full2.png" id="3_1607l"]
-[ext_resource type="Texture2D" uid="uid://6qqh6fa0pdpt" path="res://assets/sprites/gui/progress_bar/over.png" id="3_jetyh"]
-[ext_resource type="Texture2D" uid="uid://cs5im8lv78lop" path="res://assets/sprites/gui/progress_bar/progress.png" id="4_2g3kh"]
 [ext_resource type="Texture2D" uid="uid://c3pl6hofmvkd" path="res://assets/sprites/gui/heart/half2.png" id="4_i7spj"]
 [ext_resource type="Texture2D" uid="uid://cjcov6by61u8q" path="res://assets/sprites/gui/dash_bar/under.png" id="8_l1cy3"]
 [ext_resource type="PackedScene" uid="uid://drlu6ws1m4fwd" path="res://assets/objects/gui/player_heart.tscn" id="8_qp00q"]
-[ext_resource type="PackedScene" uid="uid://bcrr5xvr045au" path="res://assets/objects/ui/inventory.tscn" id="8_un75y"]
+[ext_resource type="PackedScene" uid="uid://bcrr5xvr045au" path="res://assets/objects/gui/inventory.tscn" id="8_un75y"]
 [ext_resource type="Texture2D" uid="uid://vauhxwoax0du" path="res://assets/sprites/gui/dash_bar/over.png" id="9_8txie"]
 [ext_resource type="Texture2D" uid="uid://c3cr8v1oge3x8" path="res://assets/sprites/gui/dash_bar/progress.png" id="10_7fjnq"]
 [ext_resource type="Texture2D" uid="uid://cgu8eyfhabit2" path="res://assets/sprites/gui/panels/dia_rect.png" id="10_dtmd7"]
 [ext_resource type="PackedScene" uid="uid://cs4dak0qncw38" path="res://assets/objects/gui/text_box.tscn" id="14_ia8gm"]
 
 [node name="front_ui" type="CanvasLayer"]
+follow_viewport_scale = 2.0
 script = ExtResource("1_g3hkb")
 heart = ExtResource("8_qp00q")
 heart_full = ExtResource("3_1607l")
 heart_half = ExtResource("4_i7spj")
 
 [node name="player_ui" type="Node2D" parent="."]
-
-[node name="old_health_ui" type="Sprite2D" parent="player_ui"]
-visible = false
-z_index = 10
-position = Vector2(21, 248)
-texture = ExtResource("1_kaxaf")
-
-[node name="hp" type="TextureProgressBar" parent="player_ui/old_health_ui"]
-visible = false
-z_index = -1
-anchors_preset = -1
-anchor_left = -0.015625
-anchor_top = -0.0729167
-anchor_right = -0.015625
-anchor_bottom = -0.0729167
-offset_left = 12.5
-offset_top = -0.833334
-offset_right = 82.5
-offset_bottom = 11.1667
-step = 0.1
-value = 50.0
-nine_patch_stretch = true
-stretch_margin_left = 1
-stretch_margin_top = 1
-stretch_margin_right = 1
-stretch_margin_bottom = 1
-texture_under = ExtResource("2_1udac")
-texture_over = ExtResource("3_jetyh")
-texture_progress = ExtResource("4_2g3kh")
-tint_over = Color(100, 100, 100, 1)
-tint_progress = Color(2, 0.662745, 0.552941, 1)
-metadata/_edit_use_anchors_ = true
-
-[node name="energy" type="TextureProgressBar" parent="player_ui/old_health_ui"]
-z_index = -1
-anchors_preset = -1
-anchor_left = 0.489583
-anchor_top = 0.510417
-anchor_right = 0.520832
-anchor_bottom = 0.510417
-offset_left = -2.66667
-offset_top = -24.3333
-offset_right = 65.3334
-offset_bottom = -19.3333
-grow_horizontal = 2
-grow_vertical = 2
-max_value = 3.0
-value = 2.0
-nine_patch_stretch = true
-stretch_margin_left = 1
-stretch_margin_top = 1
-stretch_margin_right = 1
-stretch_margin_bottom = 1
-texture_under = ExtResource("2_1udac")
-texture_over = ExtResource("3_jetyh")
-texture_progress = ExtResource("4_2g3kh")
-tint_over = Color(100, 100, 100, 1)
-tint_progress = Color(2.5, 1.8, 0.6, 1)
-
-[node name="grid1" type="ColorRect" parent="player_ui/old_health_ui/energy"]
-layout_mode = 0
-offset_left = 22.0
-offset_right = 23.0
-offset_bottom = 5.0
-
-[node name="grid2" type="ColorRect" parent="player_ui/old_health_ui/energy"]
-layout_mode = 0
-offset_left = 44.5
-offset_right = 45.5
-offset_bottom = 5.0
 
 [node name="active_item_slot" type="NinePatchRect" parent="player_ui"]
 offset_left = 3.0
@@ -123,15 +50,16 @@ texture_over = ExtResource("9_8txie")
 texture_progress = ExtResource("10_7fjnq")
 
 [node name="inventory" parent="." instance=ExtResource("8_un75y")]
+visible = false
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -242.5
-offset_top = 14.0
-offset_right = -242.5
-offset_bottom = 14.0
+offset_left = -135.5
+offset_top = -59.0
+offset_right = -135.5
+offset_bottom = -59.0
 grow_horizontal = 2
 grow_vertical = 2
 

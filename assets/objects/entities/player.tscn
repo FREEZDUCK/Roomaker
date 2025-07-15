@@ -103,7 +103,7 @@ script = ExtResource("1_rih66")
 [node name="anim_sp" type="AnimatedSprite2D" parent="."]
 material = SubResource("ShaderMaterial_xw84m")
 sprite_frames = ExtResource("2_h1xb3")
-animation = &"idle"
+animation = &"attack_back"
 
 [node name="coll" type="CollisionShape2D" parent="."]
 position = Vector2(0, 5)

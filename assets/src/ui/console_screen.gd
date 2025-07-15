@@ -48,6 +48,10 @@ func control_command(command_text : String):
 		Command.summon_monster(sp_text[1], Info.player_pos + Vector2(int(sp_text[2]), -int(sp_text[3])))
 	elif sp_text[0] == '/item' and len(sp_text) == 4:
 		Command.summon_item(sp_text[1], Info.player_pos + Vector2(int(sp_text[2]), -int(sp_text[3])))
+	elif sp_text[0] == '/giveitem' and len(sp_text) == 2:
+		Command.give_item(sp_text[1])
+	elif sp_text[0] == '/newroom' and len(sp_text) == 2:
+		Command.new_room(int(sp_text[1])) 
 	elif sp_text[0] == "/particle" and len(sp_text) == 4:
 		Command.particle(sp_text[1], Info.player_pos + Vector2(int(sp_text[2]), -int(sp_text[3])), Vector2(0, 0), Color(1, 1, 1, 1))
 	elif sp_text[0] == "/state" and len(sp_text) == 3:

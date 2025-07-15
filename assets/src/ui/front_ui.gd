@@ -63,18 +63,20 @@ func control_player_heart():
 
 func control_item_des():
 	for entity in Info.all_entities:
-		if entity is DropItem and entity.global_position:
-			if near_dropItem == null:
-				near_dropItem = entity
+		if entity is DropItem:
+			if Info.near_dropItem == null:
+				Info.near_dropItem = entity
 			else:
-				if entity.global_position.distance_to(Info.player_pos) < near_dropItem.global_position.distance_to(Info.player_pos):
-					near_dropItem = entity
+				if entity.global_position.distance_to(Info.player_pos) < Info.near_dropItem.global_position.distance_to(Info.player_pos):
+					Info.near_dropItem = entity
 	# 가장 가까운 아이템 마저도 플레이어와 거리가 detect_item_range 초과하면 그냥 가까운 아이템 없음
-	if near_dropItem != null and near_dropItem.global_position.distance_to(Info.player_pos) > detect_item_range:
-		near_dropItem = null
+	if Info.near_dropItem != null and Info.near_dropItem.global_position.distance_to(Info.player_pos) > detect_item_range:
+		Info.near_dropItem.find_child("outline").visible = false
+		Info.near_dropItem = null
 		
-	if near_dropItem != null:
+	if Info.near_dropItem != null:
 		item_des.visible = true
-		item_des.text = "[b]<" + near_dropItem.itemName + ">[/b][color=#747474] ㅣ " + near_dropItem.itemType + "[/color]\n\n" + near_dropItem.itemDes
-	elif near_dropItem == null:
+		item_des.text = Command.stylize_description(Info.near_dropItem.itemDisplayName, Info.near_dropItem.itemType, Info.near_dropItem.itemDes, Info.near_dropItem.itemAbility, "dropitem")
+		Info.near_dropItem.find_child("outline").visible = true
+	elif Info.near_dropItem == null:
 		item_des.visible = false

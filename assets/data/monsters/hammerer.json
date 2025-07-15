@@ -12,7 +12,7 @@
 		"collision" : [15, 8, 35, 30]
 	},
 	"animation" : {
-		"texture_pivot" : [-13, -14],
+		"texture_pivot" : [-13, -8],
 		"states" : ["idle", "death", "walk"],
 		"attack_frames" : [7]
 	}

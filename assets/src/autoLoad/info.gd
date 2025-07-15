@@ -16,6 +16,7 @@ var player_knockback_force : float = 1.8
 var player_movement_speed : float = 55.0
 
 var inventory : Control
+var near_dropItem : Area2D
 var all_entities : Array = []
 
 # 풀 스크린 온 오프 / 풀 스크린 키 = F11 or F

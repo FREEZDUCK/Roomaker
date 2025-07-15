@@ -1,12 +1,15 @@
 [gd_scene load_steps=6 format=3 uid="uid://dk04lm2domk62"]
 
 [ext_resource type="PackedScene" uid="uid://4a25m1l2e8h1" path="res://assets/objects/entities/player.tscn" id="1_553wh"]
+[ext_resource type="Script" path="res://assets/src/all_type/all_rooms.gd" id="1_kl2vb"]
 [ext_resource type="Script" path="res://assets/src/all_type/all_entities.gd" id="2_udt0u"]
-[ext_resource type="PackedScene" uid="uid://mot8or7f4kfe" path="res://assets/objects/tiles.tscn" id="3_0tapg"]
 [ext_resource type="PackedScene" uid="uid://17k2bjua2osg" path="res://assets/objects/ui/front_ui.tscn" id="4_x87jd"]
 [ext_resource type="PackedScene" uid="uid://cu1ql18sdinup" path="res://assets/objects/ui/console_screen.tscn" id="5_pfmhq"]
 
 [node name="play_scene" type="Node2D"]
+
+[node name="all_rooms" type="Node2D" parent="."]
+script = ExtResource("1_kl2vb")
 
 [node name="all_particles" type="Node2D" parent="."]
 z_index = 5
@@ -17,6 +20,7 @@ y_sort_enabled = true
 script = ExtResource("2_udt0u")
 
 [node name="player" parent="all_entities" instance=ExtResource("1_553wh")]
+position = Vector2(88, 40)
 
 [node name="front_ui" parent="." instance=ExtResource("4_x87jd")]
 
@@ -24,9 +28,6 @@ script = ExtResource("2_udt0u")
 zoom = Vector2(1.2, 1.2)
 position_smoothing_enabled = true
 position_smoothing_speed = 2.0
-
-[node name="tiles" parent="." instance=ExtResource("3_0tapg")]
-position = Vector2(-89, -18)
 
 [node name="console_screen" parent="." instance=ExtResource("5_pfmhq")]
 visible = false
