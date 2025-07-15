@@ -9,7 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://vauhxwoax0du" path="res://assets/sprites/gui/dash_bar/over.png" id="9_8txie"]
 [ext_resource type="Texture2D" uid="uid://c3cr8v1oge3x8" path="res://assets/sprites/gui/dash_bar/progress.png" id="10_7fjnq"]
 [ext_resource type="Texture2D" uid="uid://cgu8eyfhabit2" path="res://assets/sprites/gui/panels/dia_rect.png" id="10_dtmd7"]
-[ext_resource type="Texture2D" uid="uid://dqos83kj6kux5" path="res://assets/sprites/items/algiz.png" id="11_qx8gh"]
+[ext_resource type="PackedScene" uid="uid://bqu03owo6b4it" path="res://assets/objects/gui/map.tscn" id="11_24ego"]
 [ext_resource type="PackedScene" uid="uid://cs4dak0qncw38" path="res://assets/objects/gui/text_box.tscn" id="14_ia8gm"]
 
 [node name="front_ui" type="CanvasLayer"]
@@ -70,7 +70,5 @@ offset_top = 51.0
 offset_right = 3.0
 offset_bottom = 51.0
 
-[node name="Algiz" type="Sprite2D" parent="."]
-position = Vector2(21, 21)
-scale = Vector2(2, 2)
-texture = ExtResource("11_qx8gh")
+[node name="map" parent="." instance=ExtResource("11_24ego")]
+position = Vector2(428, 205)

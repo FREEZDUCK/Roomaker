@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://bqu03owo6b4it"]
+
+[ext_resource type="Script" path="res://assets/src/gui/map.gd" id="1_rf1ak"]
+[ext_resource type="Texture2D" uid="uid://cgu8eyfhabit2" path="res://assets/sprites/gui/panels/dia_rect.png" id="1_taq74"]
+[ext_resource type="Texture2D" uid="uid://dfdmfvigk0oo4" path="res://assets/sprites/gui/map_icons/room_icon.png" id="2_lxtex"]
+[ext_resource type="Texture2D" uid="uid://4snhlmtvhqc3" path="res://assets/sprites/gui/map_icons/active_room_icon.png" id="3_0uedt"]
+
+[node name="map" type="Node2D"]
+script = ExtResource("1_rf1ak")
+room_icon = ExtResource("2_lxtex")
+active_room_icon = ExtResource("3_0uedt")
+
+[node name="back_panel" type="NinePatchRect" parent="."]
+offset_right = 64.0
+offset_bottom = 64.0
+texture = ExtResource("1_taq74")
+region_rect = Rect2(0, 0, 15, 15)
+patch_margin_left = 4
+patch_margin_top = 4
+patch_margin_right = 4
+patch_margin_bottom = 4
+
+[node name="rooms_icon" type="Node2D" parent="."]

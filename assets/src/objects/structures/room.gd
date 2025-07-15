@@ -38,7 +38,7 @@ func set_tiles():
 			elif char == 'o':
 				tiles.set_cell(1, Vector2i(x, y), 0, Vector2i(24, 17))
 			elif char == "X":
-				Command.summon_monster("wraith", global_position - Vector2(192, 128) + Vector2(x * 16, y * 16))
+				Command.summon_monster("wraith", global_position - Vector2(224, 128) + Vector2(x * 16 + 8, y * 16 + 8))
 				
 			if char != "#":
 				tiles.set_cells_terrain_connect(2, [Vector2i(x, y)], 0, FLOOR_TILE_TERRAIN)
