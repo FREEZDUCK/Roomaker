@@ -1,15 +1,15 @@
 [gd_scene load_steps=3 format=3 uid="uid://bj184qtre4dta"]
 
 [ext_resource type="Script" path="res://assets/src/particles/animated_particle.gd" id="1_t18ep"]
-[ext_resource type="SpriteFrames" uid="uid://c5npilka8t2kd" path="res://assets/animations/particles/attack_hit.tres" id="2_jrdyb"]
+[ext_resource type="SpriteFrames" uid="uid://donu8y1hnaj8q" path="res://assets/animations/particles/slash_basic_side.tres" id="2_tmhfv"]
 
 [node name="animated_particle" type="Node2D"]
 script = ExtResource("1_t18ep")
 
 [node name="anim_sp" type="AnimatedSprite2D" parent="."]
-sprite_frames = ExtResource("2_jrdyb")
+sprite_frames = ExtResource("2_tmhfv")
 animation = &"play"
-frame = 3
+frame = 5
 frame_progress = 1.0
 
 [connection signal="animation_finished" from="anim_sp" to="." method="_on_animation_finished"]

@@ -82,4 +82,3 @@ func _check_empty():
 			is_empty = false
 			return
 	is_empty = true
-

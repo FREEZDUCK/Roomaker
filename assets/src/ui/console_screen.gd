@@ -27,7 +27,7 @@ func _process(delta):
 		inputBox.text = reverse_list[index_num]
 		inputBox.caret_column = inputBox.text.length()
 		index_num += 1
-		
+
 func control_visible():
 	if off_console == true:
 		get_tree().paused = false
@@ -50,8 +50,8 @@ func control_command(command_text : String):
 		Command.summon_item(sp_text[1], Info.player_pos + Vector2(int(sp_text[2]), -int(sp_text[3])))
 	elif sp_text[0] == '/giveitem' and len(sp_text) == 2:
 		Command.give_item(sp_text[1])
-	elif sp_text[0] == '/newroom' and len(sp_text) == 2:
-		Command.new_room(int(sp_text[1])) 
+	elif sp_text[0] == '/newroom' and len(sp_text) == 3:
+		Command.new_room(sp_text[1], sp_text[2]) 
 	elif sp_text[0] == "/particle" and len(sp_text) == 4:
 		Command.particle(sp_text[1], Info.player_pos + Vector2(int(sp_text[2]), -int(sp_text[3])), Vector2(0, 0), Color(1, 1, 1, 1))
 	elif sp_text[0] == "/state" and len(sp_text) == 3:

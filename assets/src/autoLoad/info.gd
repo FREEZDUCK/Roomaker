@@ -19,6 +19,8 @@ var inventory : Control
 var near_dropItem : Area2D
 var all_entities : Array = []
 
+var room_in_player_pos : Vector2 = Vector2(0, 0)
+
 # 풀 스크린 온 오프 / 풀 스크린 키 = F11 or F
 var full_screen : bool = false
 func _process(_delta):
