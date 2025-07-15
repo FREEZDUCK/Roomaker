@@ -1,10 +1,19 @@
-[gd_scene load_steps=3 format=3 uid="uid://i2h2jvi2vfi3"]
+[gd_scene load_steps=4 format=3 uid="uid://i2h2jvi2vfi3"]
 
 [ext_resource type="Script" path="res://assets/src/objects/structures/room.gd" id="1_68v45"]
 [ext_resource type="PackedScene" uid="uid://mot8or7f4kfe" path="res://assets/objects/tiles.tscn" id="2_qnwqw"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_05b8x"]
+size = Vector2(448, 272)
+
 [node name="room" type="Node2D"]
+y_sort_enabled = true
 script = ExtResource("1_68v45")
 
-[node name="tile" parent="." instance=ExtResource("2_qnwqw")]
-layer_0/tile_data = PackedInt32Array()
+[node name="tiles" parent="." instance=ExtResource("2_qnwqw")]
+
+[node name="room" type="Area2D" parent="."]
+
+[node name="coll" type="CollisionShape2D" parent="room"]
+visible = false
+shape = SubResource("RectangleShape2D_05b8x")

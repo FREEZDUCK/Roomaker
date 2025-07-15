@@ -1,0 +1,73 @@
+[gd_scene load_steps=12 format=3 uid="uid://cyscpfr3xu2r1"]
+
+[ext_resource type="Texture2D" uid="uid://xsweqybnik3v" path="res://assets/sprites/tiles/chest.png" id="1_nk2wc"]
+[ext_resource type="Script" path="res://assets/src/objects/entities/chest.gd" id="1_ypplx"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_x6g8a"]
+friction = 100.0
+bounce = 0.25
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cxtdb"]
+atlas = ExtResource("1_nk2wc")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_delot"]
+load_path = "res://.godot/imported/RPG Chests.png-2bd8b64977bccc4ee15b020ea1f2c74a.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_72boq"]
+atlas = SubResource("CompressedTexture2D_delot")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3575m"]
+atlas = SubResource("CompressedTexture2D_delot")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5n02e"]
+atlas = SubResource("CompressedTexture2D_delot")
+region = Rect2(32, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_os4np"]
+atlas = SubResource("CompressedTexture2D_delot")
+region = Rect2(32, 96, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_e7q3i"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cxtdb")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_72boq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3575m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5n02e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_os4np")
+}],
+"loop": false,
+"name": &"open",
+"speed": 10.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e3t1q"]
+size = Vector2(18, 14)
+
+[node name="chest" type="StaticBody2D"]
+physics_material_override = SubResource("PhysicsMaterial_x6g8a")
+script = ExtResource("1_ypplx")
+
+[node name="anim_sp" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_e7q3i")
+
+[node name="coll" type="CollisionShape2D" parent="."]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_e3t1q")

@@ -32,12 +32,14 @@ func _process(delta):
 	global_position += dir * speed * delta
 
 func hit():
+	print(11)
 	dir = Vector2.ZERO
 	collision.set_deferred("disabled", true)
 	anim_sp.rotation = 0
 	anim_sp.play("hit")
 
 func _on_body_entered(body):
+	print(body.name)
 	if body.name == 'tiles':
 		hit()
 	if body is Player:

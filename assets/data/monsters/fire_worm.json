@@ -11,7 +11,7 @@
 			"shoot_pos" : [19, -9.5],
 			"delay" : [4, 5],
 			"name" : "fire_ball",
-			"shoot_func" : "target_player",
+			"shoot_func" : "spread_circle_border",
 		},
 		"collision" : [15, 5, 30, 18],
 		"damage" : 1,

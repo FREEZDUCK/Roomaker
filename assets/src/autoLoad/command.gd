@@ -95,18 +95,33 @@ func summon_item(item_name : String, pos : Vector2):
 	
 	get_tree().current_scene.find_child("all_entities").add_child(dropItem)
 
-func new_room(room_id : int, dir : String = "up", type : String = "basic"):
+func new_room(room_key : String, dir : String = "here", type : String = "basic"):
 	# dir은 이제 생성 할 방의 방향 "left", "right", "up", "down"
 	# type는 방의 속성 : "water", "lava" .... 등
 	var rooms_data = Cfile.get_jsonData("res://assets/data/rooms.json")
-	var target_room_data = rooms_data[str(room_id)]
+	if (room_key in rooms_data.keys()) == false:
+		Command.error("데이터에 없는 방입니다.")
+		return
+	var target_room_data = rooms_data[room_key]
 	
 	var room_path = load("res://assets/objects/structures/room.tscn")
 	var room = room_path.instantiate()
 	
 	room.tile_data = target_room_data
-	get_tree().current_scene.find_child("all_rooms").add_child(room)
 	
+	# 타일맵 중앙 배치
+	room.find_child("tiles").position = -Vector2(224, 128)
+	
+	if dir == "right":
+		room.global_position = Info.room_in_player_pos + Vector2(448, 0)
+	elif dir == 'left':
+		room.global_position = Info.room_in_player_pos - Vector2(448, 0)
+	elif dir == 'up':
+		room.global_position = Info.room_in_player_pos - Vector2(0, 256)
+	elif dir == 'down':
+		room.global_position = Info.room_in_player_pos + Vector2(0, 256)
+		
+	get_tree().current_scene.find_child("all_rooms").add_child(room)
 
 func give_item(item_name: String) -> bool:
 	var item_data = Cfile.get_jsonData("res://assets/data/items/" + item_name + ".json")
@@ -175,13 +190,14 @@ func shake_camera(camera: Camera2D, duration: float, intensity: float) -> void:
 	camera.offset = Vector2(0, 0)
 
 # 애니메이션 파티클 소환 함수 / 파티클 이름, 생성 위치, 바라볼 방향, 색상 변경 할 색상
-func particle(par_name : String, pos : Vector2, dir : Vector2 = Vector2(0, 0), color : Color = Color(1, 1, 1, 1)):
+func particle(par_name : String, pos : Vector2, dir : Vector2 = Vector2(0, 0), color : Color = Color(1, 1, 1, 1), flipV : bool = false):
 	var par_path = preload("res://assets/objects/particles/animated_particle.tscn")
 	var par = par_path.instantiate()
 	
 	par.modulate = color
 	par.find_child("anim_sp").sprite_frames = load("res://assets/animations/particles/" + par_name + ".tres")
 	par.find_child("anim_sp").play("play")
+	par.find_child("anim_sp").flip_h = flipV
 	par.global_position = pos
 	par.rotation = dir.angle()
 	get_tree().current_scene.find_child("all_particles").add_child(par)
