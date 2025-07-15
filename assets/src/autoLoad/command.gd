@@ -108,7 +108,6 @@ func new_room(room_key : String, dir : String = "here", type : String = "basic")
 	var room = room_path.instantiate()
 	
 	room.tile_data = target_room_data
-
 	# 타일맵 중앙 배치
 	room.find_child("tiles").position = -Vector2(224, 128)
 	
