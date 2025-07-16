@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://cyscpfr3xu2r1"]
+[gd_scene load_steps=11 format=3 uid="uid://cyscpfr3xu2r1"]
 
 [ext_resource type="Texture2D" uid="uid://xsweqybnik3v" path="res://assets/sprites/tiles/chest.png" id="1_nk2wc"]
 [ext_resource type="Script" path="res://assets/src/objects/entities/chest.gd" id="1_ypplx"]
@@ -11,23 +11,20 @@ bounce = 0.25
 atlas = ExtResource("1_nk2wc")
 region = Rect2(32, 0, 32, 32)
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_delot"]
-load_path = "res://.godot/imported/RPG Chests.png-2bd8b64977bccc4ee15b020ea1f2c74a.ctex"
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_72boq"]
-atlas = SubResource("CompressedTexture2D_delot")
+[sub_resource type="AtlasTexture" id="AtlasTexture_m27yu"]
+atlas = ExtResource("1_nk2wc")
 region = Rect2(32, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_3575m"]
-atlas = SubResource("CompressedTexture2D_delot")
+[sub_resource type="AtlasTexture" id="AtlasTexture_yxhdp"]
+atlas = ExtResource("1_nk2wc")
 region = Rect2(32, 32, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_5n02e"]
-atlas = SubResource("CompressedTexture2D_delot")
+[sub_resource type="AtlasTexture" id="AtlasTexture_ua25c"]
+atlas = ExtResource("1_nk2wc")
 region = Rect2(32, 64, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_os4np"]
-atlas = SubResource("CompressedTexture2D_delot")
+[sub_resource type="AtlasTexture" id="AtlasTexture_x7bww"]
+atlas = ExtResource("1_nk2wc")
 region = Rect2(32, 96, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_e7q3i"]
@@ -42,16 +39,16 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_72boq")
+"texture": SubResource("AtlasTexture_m27yu")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_3575m")
+"texture": SubResource("AtlasTexture_yxhdp")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_5n02e")
+"texture": SubResource("AtlasTexture_ua25c")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_os4np")
+"texture": SubResource("AtlasTexture_x7bww")
 }],
 "loop": false,
 "name": &"open",

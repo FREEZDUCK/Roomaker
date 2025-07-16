@@ -1,15 +1,15 @@
 [gd_scene load_steps=3 format=3 uid="uid://bj184qtre4dta"]
 
 [ext_resource type="Script" path="res://assets/src/particles/animated_particle.gd" id="1_t18ep"]
-[ext_resource type="SpriteFrames" uid="uid://donu8y1hnaj8q" path="res://assets/animations/particles/slash_basic_side.tres" id="2_tmhfv"]
+[ext_resource type="SpriteFrames" uid="uid://c0wy3yffhusb2" path="res://assets/animations/particles/ice_speak.tres" id="2_2ga47"]
 
 [node name="animated_particle" type="Node2D"]
 script = ExtResource("1_t18ep")
 
 [node name="anim_sp" type="AnimatedSprite2D" parent="."]
-sprite_frames = ExtResource("2_tmhfv")
+sprite_frames = ExtResource("2_2ga47")
 animation = &"play"
-frame = 5
+frame = 8
 frame_progress = 1.0
 
 [connection signal="animation_finished" from="anim_sp" to="." method="_on_animation_finished"]

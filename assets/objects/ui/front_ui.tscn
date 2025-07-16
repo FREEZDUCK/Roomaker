@@ -23,18 +23,21 @@ heart_half = ExtResource("4_i7spj")
 [node name="active_item_slot" type="NinePatchRect" parent="player_ui"]
 offset_left = 3.0
 offset_top = 3.0
-offset_right = 38.0
-offset_bottom = 38.0
+offset_right = 39.0
+offset_bottom = 39.0
 texture = ExtResource("10_dtmd7")
 patch_margin_left = 4
 patch_margin_top = 4
 patch_margin_right = 4
 patch_margin_bottom = 4
 
+[node name="skill_display" type="Sprite2D" parent="player_ui/active_item_slot"]
+position = Vector2(18, 18)
+
 [node name="V" type="VBoxContainer" parent="player_ui"]
-offset_left = 40.0
+offset_left = 42.0
 offset_top = 3.0
-offset_right = 88.0
+offset_right = 90.0
 offset_bottom = 43.0
 theme_override_constants/separation = 18
 
