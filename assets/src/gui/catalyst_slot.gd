@@ -12,3 +12,5 @@ func load_itemImg():
 		$display.texture = null
 		return
 	$display.texture = load("res://assets/sprites/items/" + held_itemName + ".png")
+
+
