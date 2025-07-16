@@ -59,6 +59,7 @@ animations = [{
 size = Vector2(18, 14)
 
 [node name="chest" type="StaticBody2D"]
+y_sort_enabled = true
 physics_material_override = SubResource("PhysicsMaterial_x6g8a")
 script = ExtResource("1_ypplx")
 
@@ -68,3 +69,5 @@ sprite_frames = SubResource("SpriteFrames_e7q3i")
 [node name="coll" type="CollisionShape2D" parent="."]
 position = Vector2(0, 1)
 shape = SubResource("RectangleShape2D_e3t1q")
+
+[connection signal="animation_finished" from="anim_sp" to="." method="_on_animation_finished"]

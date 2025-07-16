@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://17k2bjua2osg"]
+[gd_scene load_steps=16 format=3 uid="uid://17k2bjua2osg"]
 
 [ext_resource type="Script" path="res://assets/src/ui/front_ui.gd" id="1_g3hkb"]
 [ext_resource type="Texture2D" uid="uid://tatf430r4uay" path="res://assets/sprites/gui/heart/full2.png" id="3_1607l"]
@@ -9,7 +9,62 @@
 [ext_resource type="Texture2D" uid="uid://vauhxwoax0du" path="res://assets/sprites/gui/dash_bar/over.png" id="9_8txie"]
 [ext_resource type="Texture2D" uid="uid://c3cr8v1oge3x8" path="res://assets/sprites/gui/dash_bar/progress.png" id="10_7fjnq"]
 [ext_resource type="Texture2D" uid="uid://cgu8eyfhabit2" path="res://assets/sprites/gui/panels/dia_rect.png" id="10_dtmd7"]
+[ext_resource type="PackedScene" uid="uid://bqu03owo6b4it" path="res://assets/objects/gui/map.tscn" id="11_24ego"]
 [ext_resource type="PackedScene" uid="uid://cs4dak0qncw38" path="res://assets/objects/gui/text_box.tscn" id="14_ia8gm"]
+
+[sub_resource type="Animation" id="Animation_4xgby"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("map:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(428, 205)]
+}
+
+[sub_resource type="Animation" id="Animation_0dvxq"]
+resource_name = "hide"
+length = 0.7
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("map:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.7),
+"transitions": PackedFloat32Array(0.217638, 2.2974, 1),
+"update": 0,
+"values": [Vector2(428, 205), Vector2(423, 205), Vector2(500, 205)]
+}
+
+[sub_resource type="Animation" id="Animation_mmkks"]
+resource_name = "show"
+length = 0.7
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("map:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.7),
+"transitions": PackedFloat32Array(0.105112, 2.54912, 1),
+"update": 0,
+"values": [Vector2(500, 205), Vector2(423, 205), Vector2(428, 205)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_y076b"]
+_data = {
+"RESET": SubResource("Animation_4xgby"),
+"hide": SubResource("Animation_0dvxq"),
+"show": SubResource("Animation_mmkks")
+}
 
 [node name="front_ui" type="CanvasLayer"]
 follow_viewport_scale = 2.0
@@ -71,3 +126,11 @@ offset_left = 3.0
 offset_top = 51.0
 offset_right = 3.0
 offset_bottom = 51.0
+
+[node name="map" parent="." instance=ExtResource("11_24ego")]
+position = Vector2(428, 205)
+
+[node name="animation" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_y076b")
+}

@@ -1,0 +1,59 @@
+[gd_scene load_steps=9 format=3 uid="uid://dv43wy1vdbte7"]
+
+[ext_resource type="Script" path="res://assets/src/objects/structures/doors.gd" id="1_185wi"]
+[ext_resource type="Texture2D" uid="uid://cnxo4kbh0w83d" path="res://assets/sprites/tiles/door_front.png" id="1_kx8ct"]
+[ext_resource type="Texture2D" uid="uid://dr1t6qau547nt" path="res://assets/sprites/tiles/door_back.png" id="2_sanib"]
+[ext_resource type="Texture2D" uid="uid://ta02j68f7qdi" path="res://assets/sprites/tiles/door_side.png" id="3_4vr7m"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kbp4s"]
+size = Vector2(32, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eyomm"]
+size = Vector2(32, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1lavq"]
+size = Vector2(16, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_stl5p"]
+size = Vector2(16, 32)
+
+[node name="doors" type="Node2D"]
+z_index = 2
+y_sort_enabled = true
+script = ExtResource("1_185wi")
+
+[node name="up" type="StaticBody2D" parent="."]
+position = Vector2(0, -104)
+
+[node name="coll" type="CollisionShape2D" parent="up"]
+shape = SubResource("RectangleShape2D_kbp4s")
+
+[node name="sp" type="Sprite2D" parent="up"]
+texture = ExtResource("1_kx8ct")
+
+[node name="down" type="StaticBody2D" parent="."]
+position = Vector2(0, 104)
+
+[node name="coll" type="CollisionShape2D" parent="down"]
+shape = SubResource("RectangleShape2D_eyomm")
+
+[node name="sp" type="Sprite2D" parent="down"]
+texture = ExtResource("2_sanib")
+
+[node name="left" type="StaticBody2D" parent="."]
+position = Vector2(-200, 0)
+
+[node name="coll" type="CollisionShape2D" parent="left"]
+shape = SubResource("RectangleShape2D_1lavq")
+
+[node name="sp" type="Sprite2D" parent="left"]
+texture = ExtResource("3_4vr7m")
+
+[node name="right" type="StaticBody2D" parent="."]
+position = Vector2(200, 0)
+
+[node name="coll" type="CollisionShape2D" parent="right"]
+shape = SubResource("RectangleShape2D_stl5p")
+
+[node name="sp" type="Sprite2D" parent="right"]
+texture = ExtResource("3_4vr7m")

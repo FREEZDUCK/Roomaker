@@ -8,6 +8,7 @@ extends CanvasLayer
 @onready var display_skill_icon: Sprite2D = $player_ui/active_item_slot/skill_display
 
 var near_dropItem : Area2D
+var show_minimap := true
 
 # Pointer----------------
 var dash_bar : TextureProgressBar
@@ -24,6 +25,13 @@ func _process(delta):
 	control_item_des()
 	control_dash_bar()
 	control_player_heart()
+	
+	if Input.is_action_just_pressed("minimap"):
+		if show_minimap:
+			$animation.play("hide")
+		else:
+			$animation.play("show")
+		show_minimap = !show_minimap
 
 func spawn_heart(spawn_count : int):
 	for i in range(spawn_count):

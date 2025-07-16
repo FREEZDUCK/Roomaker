@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://5x2l5sviyciu"
-path="res://.godot/imported/rocks.png-02ec0d20ec1d68b127bcff4310143024.ctex"
+uid="uid://dr1t6qau547nt"
+path="res://.godot/imported/door_back.png-2b41f430de7659d75504f9a8fa671bea.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/tiles/rocks.png"
-dest_files=["res://.godot/imported/rocks.png-02ec0d20ec1d68b127bcff4310143024.ctex"]
+source_file="res://assets/sprites/tiles/door_back.png"
+dest_files=["res://.godot/imported/door_back.png-2b41f430de7659d75504f9a8fa671bea.ctex"]
 
 [params]
 
