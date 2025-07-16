@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://mot8or7f4kfe" path="res://assets/objects/tiles.tscn" id="2_qnwqw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_05b8x"]
-size = Vector2(448, 272)
+size = Vector2(384, 192)
 
 [node name="room" type="Node2D"]
 y_sort_enabled = true
@@ -15,5 +15,4 @@ script = ExtResource("1_68v45")
 [node name="room" type="Area2D" parent="."]
 
 [node name="coll" type="CollisionShape2D" parent="room"]
-visible = false
 shape = SubResource("RectangleShape2D_05b8x")

@@ -12,9 +12,8 @@
 [ext_resource type="PackedScene" uid="uid://bqu03owo6b4it" path="res://assets/objects/gui/map.tscn" id="11_24ego"]
 [ext_resource type="PackedScene" uid="uid://cs4dak0qncw38" path="res://assets/objects/gui/text_box.tscn" id="14_ia8gm"]
 
-[sub_resource type="Animation" id="Animation_mmkks"]
-resource_name = "show"
-length = 0.7
+[sub_resource type="Animation" id="Animation_4xgby"]
+length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -22,10 +21,10 @@ tracks/0/path = NodePath("map:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.4, 0.7),
-"transitions": PackedFloat32Array(0.105112, 2.54912, 1),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(500, 205), Vector2(423, 205), Vector2(428, 205)]
+"values": [Vector2(428, 205)]
 }
 
 [sub_resource type="Animation" id="Animation_0dvxq"]
@@ -44,8 +43,9 @@ tracks/0/keys = {
 "values": [Vector2(428, 205), Vector2(423, 205), Vector2(500, 205)]
 }
 
-[sub_resource type="Animation" id="Animation_4xgby"]
-length = 0.001
+[sub_resource type="Animation" id="Animation_mmkks"]
+resource_name = "show"
+length = 0.7
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -53,10 +53,10 @@ tracks/0/path = NodePath("map:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 0.4, 0.7),
+"transitions": PackedFloat32Array(0.105112, 2.54912, 1),
 "update": 0,
-"values": [Vector2(428, 205)]
+"values": [Vector2(500, 205), Vector2(423, 205), Vector2(428, 205)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_y076b"]

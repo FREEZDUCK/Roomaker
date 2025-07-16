@@ -18,13 +18,12 @@ func _process(delta):
 	
 	if icons.size() != rooms.size():
 		load_map_icon()
-		
+
 	for icon in icons:
 		if icon.position == Vector2(Info.room_in_player_pos.x / x_ratio, Info.room_in_player_pos.y / y_ratio) + center_pos:
 			icon.texture = active_room_icon
 		else:
 			icon.texture = room_icon
-
 
 func load_map_icon():
 	for icon in icons:
