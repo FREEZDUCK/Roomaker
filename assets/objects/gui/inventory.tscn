@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://bcrr5xvr045au"]
+[gd_scene load_steps=10 format=3 uid="uid://bcrr5xvr045au"]
 
 [ext_resource type="Script" path="res://assets/src/gui/inventory.gd" id="1_tqelo"]
 [ext_resource type="Texture2D" uid="uid://b84xe72gsv3x6" path="res://assets/sprites/gui/panels/gothic_rect_active.png" id="2_uo5ri"]
@@ -7,6 +7,8 @@
 [ext_resource type="Texture2D" uid="uid://b0lk2jx46sulu" path="res://assets/sprites/gui/panels/dark_rect.png" id="4_nrqh8"]
 [ext_resource type="PackedScene" uid="uid://cs4dak0qncw38" path="res://assets/objects/gui/text_box.tscn" id="5_bncn7"]
 [ext_resource type="PackedScene" uid="uid://dpsiyij8g72b" path="res://assets/objects/gui/active_slot.tscn" id="7_13lrr"]
+[ext_resource type="Texture2D" uid="uid://c450ecdsen1io" path="res://assets/sprites/gui/panels/catalyst_rect.png" id="8_aovde"]
+[ext_resource type="PackedScene" uid="uid://pg00anxlg8wk" path="res://assets/objects/gui/catalyst_slot.tscn" id="9_ki0du"]
 
 [node name="inventory" type="Control"]
 layout_mode = 3
@@ -103,3 +105,20 @@ patch_margin_left = 3
 patch_margin_top = 3
 patch_margin_right = 3
 patch_margin_bottom = 3
+
+[node name="catalyst_panel" type="NinePatchRect" parent="."]
+layout_mode = 0
+offset_left = 277.0
+offset_right = 348.0
+offset_bottom = 130.0
+texture = ExtResource("8_aovde")
+patch_margin_left = 3
+patch_margin_top = 3
+patch_margin_right = 3
+patch_margin_bottom = 3
+
+[node name="catalyst_slot" parent="catalyst_panel" instance=ExtResource("9_ki0du")]
+offset_left = 25.0
+offset_top = 55.0
+offset_right = 47.0
+offset_bottom = 77.0

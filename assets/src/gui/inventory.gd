@@ -3,6 +3,10 @@ extends Control
 @export var slot_active : Texture2D
 @export var slot_default : Texture2D
 
+@onready var door = preload("res://assets/src/objects/structures/doors.gd").new()
+@onready var doors = get_node("/root/play_scene/all_rooms/room/doors")
+
+
 var is_open : bool = false
 var is_empty : bool = true
 var is_full : bool = false
@@ -10,6 +14,7 @@ var slots : Array
 var select_slot : Control
 var passive_slot : Array
 var active_slot : Control
+var catalyst_open : bool = false
 
 # Pointer --------------
 var item_des : Control
@@ -21,19 +26,23 @@ func _ready():
 	slots = $slot_grid.get_children()
 	passive_slot = $passive_slot.get_children()
 	active_slot = $active_slot
+	add_child(door)
 	
 func _process(delta):
 	_control_slots()
 	_control_item_des()
 	_check_full()
 	_check_empty()
+	insert_catalyst()
 	
 	
 	if Input.is_action_just_pressed("inventory"):
 		if is_open == true:
 			visible = false
+			$catalyst_panel.visible = false  # 인벤토리 닫을 때 catalyst_panel 숨기기
 		elif is_open == false:
 			visible = true
+			$catalyst_panel.visible = false  # 인벤토리 열 때 기본은 숨김
 		is_open = !is_open
 	elif Input.is_action_just_pressed("pick_up"):
 		if Info.near_dropItem != null:
@@ -107,4 +116,20 @@ func give_item_to_ui(item_name: String):
 			ui.update_active_icon("")  # 또는 null
 		else:
 			ui.update_active_icon(item_name)
+
+func insert_catalyst():
+	if doors == null:
+		return
+
+	for door in doors.get_children():
+		if Input.is_action_just_pressed("interaction") and door.global_position.distance_to(Info.player_pos) < 20:
+			print("문 인터렉션")
+			$catalyst_panel.visible = true
+			# 인벤토리가 안 열려 있으면 강제로 열어도 됨
+			if not is_open:
+				visible = true
+				is_open = true
+
+			doors.del_door()
+			break
 
