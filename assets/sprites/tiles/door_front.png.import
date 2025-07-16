@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://5xxntqw343lf"
-path="res://.godot/imported/Uruz.png-52ea542770bc9bbde09c45c34d7d33cb.ctex"
+uid="uid://cnxo4kbh0w83d"
+path="res://.godot/imported/door_front.png-5b62a8fcd9a3e2e6deaeba5f86ae908d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/items/Uruz.png"
-dest_files=["res://.godot/imported/Uruz.png-52ea542770bc9bbde09c45c34d7d33cb.ctex"]
+source_file="res://assets/sprites/tiles/door_front.png"
+dest_files=["res://.godot/imported/door_front.png-5b62a8fcd9a3e2e6deaeba5f86ae908d.ctex"]
 
 [params]
 

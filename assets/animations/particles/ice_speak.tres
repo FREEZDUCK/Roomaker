@@ -1,0 +1,79 @@
+[gd_resource type="SpriteFrames" load_steps=11 format=3 uid="uid://c0wy3yffhusb2"]
+
+[ext_resource type="Texture2D" uid="uid://thk44y5nel7o" path="res://assets/sprites/skill/ice_speak.png" id="1_5xlmu"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jiqae"]
+atlas = ExtResource("1_5xlmu")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a6yhk"]
+atlas = ExtResource("1_5xlmu")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lq77j"]
+atlas = ExtResource("1_5xlmu")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uhvd4"]
+atlas = ExtResource("1_5xlmu")
+region = Rect2(384, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tl642"]
+atlas = ExtResource("1_5xlmu")
+region = Rect2(512, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_koc2d"]
+atlas = ExtResource("1_5xlmu")
+region = Rect2(640, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2fg16"]
+atlas = ExtResource("1_5xlmu")
+region = Rect2(768, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p5u87"]
+atlas = ExtResource("1_5xlmu")
+region = Rect2(896, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dkyod"]
+atlas = ExtResource("1_5xlmu")
+region = Rect2(1024, 0, 128, 128)
+
+[resource]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jiqae")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a6yhk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lq77j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uhvd4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tl642")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_koc2d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2fg16")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p5u87")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dkyod")
+}],
+"loop": false,
+"name": &"play",
+"speed": 10.0
+}]

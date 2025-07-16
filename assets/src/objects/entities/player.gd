@@ -90,7 +90,6 @@ func control_attackAnim():
 			attack_collision.disabled = true
 
 	if Input.is_action_just_pressed("melee_attack"):
-		Info.player_hp += 1
 		melee_attack()
 	
 	# 구르기 코드인데 아직 불안정 함(추후 수정 or 삭제 예정)

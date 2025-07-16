@@ -46,6 +46,7 @@ func summon_monster(monster_name : String, pos : Vector2):
 	monster.global_position = pos
 	
 	get_tree().current_scene.find_child("all_entities").add_child(monster)
+	return monster
 
 func summon_projectile(project_name : String, pos : Vector2, dir : Vector2 = Vector2(0, 0)):
 	if get_tree().current_scene.name != 'play_scene':
@@ -108,7 +109,6 @@ func new_room(room_key : String, dir : String = "here", type : String = "basic")
 	var room = room_path.instantiate()
 	
 	room.tile_data = target_room_data
-	
 	# 타일맵 중앙 배치
 	room.find_child("tiles").position = -Vector2(224, 128)
 	
@@ -122,6 +122,7 @@ func new_room(room_key : String, dir : String = "here", type : String = "basic")
 		room.global_position = Info.room_in_player_pos + Vector2(0, 256)
 		
 	get_tree().current_scene.find_child("all_rooms").add_child(room)
+	
 
 func give_item(item_name: String) -> bool:
 	var item_data = Cfile.get_jsonData("res://assets/data/items/" + item_name + ".json")

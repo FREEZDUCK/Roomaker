@@ -21,13 +21,14 @@ func _ready():
 	slots = $slot_grid.get_children()
 	passive_slot = $passive_slot.get_children()
 	active_slot = $active_slot
-
 	
 func _process(delta):
 	_control_slots()
 	_control_item_des()
 	_check_full()
 	_check_empty()
+	#_check_active()
+	
 	
 	if Input.is_action_just_pressed("inventory"):
 		if is_open == true:
@@ -37,14 +38,19 @@ func _process(delta):
 		is_open = !is_open
 	elif Input.is_action_just_pressed("pick_up"):
 		if Info.near_dropItem != null:
-			var success = Command.give_item(Info.near_dropItem.itemName)
+			var item_name = Info.near_dropItem.itemName
+			var success = Command.give_item(item_name)
 			if success:
 				Info.near_dropItem.queue_free()
 				Info.near_dropItem = null
+				give_item_to_ui(item_name)
+
 
 	elif Input.is_action_just_pressed("item_drop") and select_slot != null and select_slot.held_itemName != "":
-		Command.summon_item(select_slot.held_itemName, Info.player_pos)
+		var item_name = select_slot.held_itemName
+		Command.summon_item(item_name, Info.player_pos)
 		select_slot.held_itemName = ""
+		give_item_to_ui("")  # 슬롯 비웠으니 이미지도 제거
 		
 func _control_item_des():
 	if select_slot != null and select_slot.held_itemName != "":
@@ -82,3 +88,13 @@ func _check_empty():
 			is_empty = false
 			return
 	is_empty = true
+		
+func give_item_to_ui(item_name: String):
+	var ui = get_node("/root/play_scene/front_ui")
+	if ui and ui.has_method("update_active_icon"):
+		# 아이템 이름이 비어 있으면 이미지 제거용 신호 전달
+		if item_name == "":
+			ui.update_active_icon("")  # 또는 null
+		else:
+			ui.update_active_icon(item_name)
+

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://5xxntqw343lf"
-path="res://.godot/imported/Uruz.png-52ea542770bc9bbde09c45c34d7d33cb.ctex"
+uid="uid://thk44y5nel7o"
+path="res://.godot/imported/ice_speak.png-4dd69b8a578c4c4c43dbd4d100ce403e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/items/Uruz.png"
-dest_files=["res://.godot/imported/Uruz.png-52ea542770bc9bbde09c45c34d7d33cb.ctex"]
+source_file="res://assets/sprites/skill/ice_speak.png"
+dest_files=["res://.godot/imported/ice_speak.png-4dd69b8a578c4c4c43dbd4d100ce403e.ctex"]
 
 [params]
 

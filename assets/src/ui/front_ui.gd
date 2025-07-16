@@ -5,7 +5,10 @@ extends CanvasLayer
 @export var heart_half : Texture2D
 @export var detect_item_range : float = 40
 
+@onready var display_skill_icon: Sprite2D = $player_ui/active_item_slot/skill_display
+
 var near_dropItem : Area2D
+var show_minimap := true
 
 # Pointer----------------
 var dash_bar : TextureProgressBar
@@ -16,11 +19,19 @@ func _ready():
 	dash_bar = $player_ui/V/dash
 	heart_container = $player_ui/V/H
 	item_des = $item_des
+	
 
 func _process(delta):
 	control_item_des()
 	control_dash_bar()
 	control_player_heart()
+	
+	if Input.is_action_just_pressed("minimap"):
+		if show_minimap:
+			$animation.play("hide")
+		else:
+			$animation.play("show")
+		show_minimap = !show_minimap
 
 func spawn_heart(spawn_count : int):
 	for i in range(spawn_count):
@@ -80,3 +91,17 @@ func control_item_des():
 		Info.near_dropItem.find_child("outline").visible = true
 	elif Info.near_dropItem == null:
 		item_des.visible = false
+
+func update_active_icon(item_name: String):
+	if item_name == "":
+		display_skill_icon.texture = null  # 아이콘 제거
+		return
+	
+	var path = "res://assets/sprites/skill/" + item_name + ".png"
+	var texture = load(path)
+	if texture is Texture2D:
+		display_skill_icon.texture = texture
+	else:
+		print("이미지 로드 실패:", path)
+		display_skill_icon.texture = null
+
