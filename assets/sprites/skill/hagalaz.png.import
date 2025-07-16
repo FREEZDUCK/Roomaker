@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://5xxntqw343lf"
-path="res://.godot/imported/Uruz.png-52ea542770bc9bbde09c45c34d7d33cb.ctex"
+uid="uid://cy3n4cjeh5a6o"
+path="res://.godot/imported/hagalaz.png-b49d107a0f49434f1cc6a99a6055eeea.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/items/Uruz.png"
-dest_files=["res://.godot/imported/Uruz.png-52ea542770bc9bbde09c45c34d7d33cb.ctex"]
+source_file="res://assets/sprites/skill/hagalaz.png"
+dest_files=["res://.godot/imported/hagalaz.png-b49d107a0f49434f1cc6a99a6055eeea.ctex"]
 
 [params]
 

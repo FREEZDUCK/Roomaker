@@ -86,6 +86,9 @@ patch_margin_top = 4
 patch_margin_right = 4
 patch_margin_bottom = 4
 
+[node name="skill_display" type="Sprite2D" parent="player_ui/active_item_slot"]
+position = Vector2(18, 18)
+
 [node name="V" type="VBoxContainer" parent="player_ui"]
 offset_left = 42.0
 offset_top = 3.0

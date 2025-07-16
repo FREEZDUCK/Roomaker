@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b3uwt46a01wvw"
-path="res://.godot/imported/active_rect_active.png-bc28b7ac6de0eecb55dd5cba165a2610.ctex"
+uid="uid://dcgo62etrrbww"
+path="res://.godot/imported/eiwaz.png-334c1e56664a04843773694331c91469.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/gui/panels/active_rect_active.png"
-dest_files=["res://.godot/imported/active_rect_active.png-bc28b7ac6de0eecb55dd5cba165a2610.ctex"]
+source_file="res://assets/sprites/skill/eiwaz.png"
+dest_files=["res://.godot/imported/eiwaz.png-334c1e56664a04843773694331c91469.ctex"]
 
 [params]
 
