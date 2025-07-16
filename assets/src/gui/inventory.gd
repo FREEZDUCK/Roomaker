@@ -27,7 +27,6 @@ func _process(delta):
 	_control_item_des()
 	_check_full()
 	_check_empty()
-	#_check_active()
 	
 	
 	if Input.is_action_just_pressed("inventory"):
@@ -39,18 +38,28 @@ func _process(delta):
 	elif Input.is_action_just_pressed("pick_up"):
 		if Info.near_dropItem != null:
 			var item_name = Info.near_dropItem.itemName
+			var item_type = Info.near_dropItem.itemType
 			var success = Command.give_item(item_name)
 			if success:
 				Info.near_dropItem.queue_free()
 				Info.near_dropItem = null
-				give_item_to_ui(item_name)
+				if item_type == "active":
+					give_item_to_ui(item_name)
 
 
 	elif Input.is_action_just_pressed("item_drop") and select_slot != null and select_slot.held_itemName != "":
 		var item_name = select_slot.held_itemName
+		var item_data = Cfile.get_jsonData("res://assets/data/items/" + item_name + ".json")
+		var item_type = ""
+		if item_data.has("type"):
+			item_type = item_data["type"]
+		
 		Command.summon_item(item_name, Info.player_pos)
 		select_slot.held_itemName = ""
-		give_item_to_ui("")  # 슬롯 비웠으니 이미지도 제거
+		
+		if item_type == "active":
+			give_item_to_ui("")  # 슬롯 비웠으니 이미지 제거
+
 		
 func _control_item_des():
 	if select_slot != null and select_slot.held_itemName != "":
@@ -89,6 +98,7 @@ func _check_empty():
 			return
 	is_empty = true
 		
+			
 func give_item_to_ui(item_name: String):
 	var ui = get_node("/root/play_scene/front_ui")
 	if ui and ui.has_method("update_active_icon"):
