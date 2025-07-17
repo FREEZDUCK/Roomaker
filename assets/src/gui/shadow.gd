@@ -15,4 +15,4 @@ func _ready():
 	
 	# 위치 센터 조정
 	$shadow.position.x = -$shadow.size.x / 2
-	$shadow.position.y = parent_texture_rect.size.y / 2 - $shadow.size.y / 2 - 1
+	$shadow.position.y = -$shadow.size.y / 2

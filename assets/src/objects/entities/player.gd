@@ -53,7 +53,7 @@ func melee_attack():
 	direction = Vector2(0, 0)
 	Sound.force_play("small_whoosh", 20)
 	Sound.force_play("swing_sword", 1)
-	Command.particle("slash_basic_" + last_dir, global_position, Vector2(0,0), Color(1,1,1,1), anim_sp.flip_h)
+	Command.particle("slash_" + Info.slash_type + "_" + last_dir, global_position, Vector2(0,0), Color(1,1,1,1), anim_sp.flip_h)
 	anim_sp.play("attack_" + last_dir)
 
 func control_of_dir():

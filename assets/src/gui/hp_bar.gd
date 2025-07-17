@@ -21,7 +21,7 @@ func _process(delta):
 	# 체력 바 크기에 따라서 위치 중앙으로 조절
 	# 대상 그림 사이즈 세로 길이에 따라 높이 변경
 	bar.position.x = -bar.size.x / 2
-	bar.position.y = -bar.size.y / 2 - parent_texture_rect.size.y + 5
+	bar.position.y = -bar.size.y / 2 - parent_texture_rect.size.y
 
 
 	# 체력 바의 최대 수치, 현재 값 적용

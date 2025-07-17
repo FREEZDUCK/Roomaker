@@ -15,4 +15,5 @@ script = ExtResource("1_68v45")
 [node name="room" type="Area2D" parent="."]
 
 [node name="coll" type="CollisionShape2D" parent="room"]
+visible = false
 shape = SubResource("RectangleShape2D_05b8x")

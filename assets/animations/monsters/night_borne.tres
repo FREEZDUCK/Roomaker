@@ -1,4 +1,4 @@
-[gd_resource type="SpriteFrames" load_steps=58 format=3 uid="uid://dba18nnl82rp0"]
+[gd_resource type="SpriteFrames" load_steps=53 format=3 uid="uid://dba18nnl82rp0"]
 
 [ext_resource type="Texture2D" uid="uid://1xgg3vj1b65b" path="res://assets/sprites/monsters/night_borne.png" id="1_1uipc"]
 
@@ -45,26 +45,6 @@ region = Rect2(1040, 160, 80, 80)
 [sub_resource type="AtlasTexture" id="AtlasTexture_y6x2r"]
 atlas = ExtResource("1_1uipc")
 region = Rect2(960, 160, 80, 80)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_xc5gc"]
-atlas = ExtResource("1_1uipc")
-region = Rect2(800, 320, 80, 80)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_drq33"]
-atlas = ExtResource("1_1uipc")
-region = Rect2(720, 320, 80, 80)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_h3c16"]
-atlas = ExtResource("1_1uipc")
-region = Rect2(640, 320, 80, 80)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_oxpm8"]
-atlas = ExtResource("1_1uipc")
-region = Rect2(560, 320, 80, 80)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_1md5a"]
-atlas = ExtResource("1_1uipc")
-region = Rect2(480, 320, 80, 80)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kikgv"]
 atlas = ExtResource("1_1uipc")
@@ -263,26 +243,11 @@ animations = [{
 "texture": SubResource("AtlasTexture_y6x2r")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_xc5gc")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_drq33")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_h3c16")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_oxpm8")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_1md5a")
-}, {
-"duration": 1.0,
 "texture": SubResource("AtlasTexture_kikgv")
 }],
 "loop": false,
 "name": &"attack",
-"speed": 13.0
+"speed": 20.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -356,7 +321,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"death",
-"speed": 8.0
+"speed": 12.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -396,7 +361,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"idle",
-"speed": 5.0
+"speed": 12.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -419,5 +384,5 @@ animations = [{
 }],
 "loop": true,
 "name": &"walk",
-"speed": 5.0
+"speed": 10.0
 }]

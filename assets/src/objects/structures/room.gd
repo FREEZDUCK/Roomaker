@@ -4,8 +4,8 @@ extends Node2D
 
 var tile_data : Array
 var clear : bool = false
-var fences : Array
 var in_monsters : Array = []
+var inter_targets : Array = []
 
 # Pointer------------
 var tiles : TileMap
@@ -25,10 +25,17 @@ func _ready():
 		clear = true
 		
 func _process(delta):
+	if clear == true:
+		for obj in inter_targets:
+			obj.is_clear = true
 	
 	for monster in in_monsters:
 		if is_instance_valid(monster) == false:
 			in_monsters.erase(monster)
+			
+	for target in inter_targets:
+		if is_instance_valid(target) == false:
+			inter_targets.erase(target)
 	
 	if in_monsters.size() == 0 and is_battlefield() == true:
 		clear = true
@@ -60,7 +67,7 @@ func set_doors():
 	var doors_path = preload("res://assets/objects/structures/doors.tscn")
 	var doors = doors_path.instantiate()
 	add_child(doors)
-	fences.append(doors)
+	inter_targets.append(doors)
 
 
 func is_battlefield():
@@ -89,6 +96,12 @@ func set_tiles():
 				var path_names = Cfile.get_filesPath("res://assets/data/monsters/", ".json")
 				#path_names[randi_range(0, path_names.size()-1)].get_file().get_basename()
 				in_monsters.append(Command.summon_monster(path_names[randi_range(0, path_names.size()-1)].get_file().get_basename(), global_position - Vector2(224, 128) + Vector2(x * 16 + 8, y * 16 + 8)))
+			elif char == "C":
+				var chest_path = preload("res://assets/objects/entities/chest.tscn")
+				var chest = chest_path.instantiate()
+				chest.global_position = global_position - Vector2(224, 128) + Vector2(x * 16 + 8, y * 16 + 8)
+				get_tree().current_scene.find_child("all_entities").add_child(chest)
+				inter_targets.append(chest)
 				
 			if char != "#":
 				tiles.set_cells_terrain_connect(2, [Vector2i(x, y)], 0, FLOOR_TILE_TERRAIN)

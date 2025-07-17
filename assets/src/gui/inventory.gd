@@ -18,6 +18,7 @@ var target_door: Node2D = null
 var item_des : Control
 var current_item_des_state := "inventory"  # 기본값
 
+
 func _ready():
 	Info.inventory = self  # 전역 접근용 등록
 
@@ -33,7 +34,7 @@ func _process(delta):
 	_control_item_des()
 	_check_full()
 	_check_empty()
-	
+
 	if Input.is_action_just_pressed("insert"):
 		if is_open and select_slot and select_slot.held_itemName != "":
 			var item_data = Cfile.get_jsonData("res://assets/data/items/" + select_slot.held_itemName + ".json")
@@ -77,19 +78,29 @@ func _process(delta):
 
 		Command.summon_item(item_name, Info.player_pos)
 		select_slot.held_itemName = ""
-
+		
 		if item_type == "active":
-			give_item_to_ui("")
+			give_item_to_ui("")  # 슬롯 비웠으니 이미지 제거
+		#Skill.call(item_data["drop_func"]["name"], item_data["drop_func"]["args"])
 
+func has_item(item_name : String):
+	for slot in slots:
+		if slot.held_itemName == item_name:
+			return true
+	for p_slot in passive_slot:
+		if p_slot.held_itemName == item_name:
+			return true
+	if active_slot.held_itemName == item_name:
+		return true
+	return false
+		
 func _control_item_des():
 	if select_slot != null and select_slot.held_itemName != "":
 		item_des.visible = true
 		var item_data = Cfile.get_jsonData("res://assets/data/items/" + select_slot.held_itemName + ".json")
 		item_des.text = Command.stylize_description(item_data["name"], item_data["subname"], item_data["type"],item_data["des"], item_data["ability"], current_item_des_state)
-	else:
-		item_des.visible = false
-
-
+	elif select_slot == null or select_slot.held_itemName == "":
+		item_des.text = "체력 ㅣ " + str(Info.player_hp) + "\n" + "스피드 ㅣ " + str(Info.player_movement_speed) + "\n" + "공격력 ㅣ " + str(Info.player_attack_damage) + "\n" + "밀치기 ㅣ " + str(Info.player_knockback_force) + "\n"
 
 func _control_slots():
 	var all_slots = slots + passive_slot + [active_slot] + catalyst_slot

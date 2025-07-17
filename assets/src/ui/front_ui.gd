@@ -19,7 +19,6 @@ func _ready():
 	dash_bar = $player_ui/V/dash
 	heart_container = $player_ui/V/H
 	item_des = $item_des
-	
 
 func _process(delta):
 	control_item_des()

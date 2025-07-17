@@ -1,7 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://cyscpfr3xu2r1"]
+[gd_scene load_steps=12 format=3 uid="uid://cyscpfr3xu2r1"]
 
 [ext_resource type="Texture2D" uid="uid://xsweqybnik3v" path="res://assets/sprites/tiles/chest.png" id="1_nk2wc"]
 [ext_resource type="Script" path="res://assets/src/objects/entities/chest.gd" id="1_ypplx"]
+[ext_resource type="PackedScene" uid="uid://objqq24on4f2" path="res://assets/objects/gui/shadow.tscn" id="3_aijxv"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_x6g8a"]
 friction = 100.0
@@ -69,5 +70,8 @@ sprite_frames = SubResource("SpriteFrames_e7q3i")
 [node name="coll" type="CollisionShape2D" parent="."]
 position = Vector2(0, 1)
 shape = SubResource("RectangleShape2D_e3t1q")
+
+[node name="shadow" parent="." instance=ExtResource("3_aijxv")]
+position = Vector2(0, 7)
 
 [connection signal="animation_finished" from="anim_sp" to="." method="_on_animation_finished"]

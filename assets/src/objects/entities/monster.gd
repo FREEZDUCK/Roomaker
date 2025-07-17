@@ -16,7 +16,6 @@ var accel : float = 1 # 가속력 속도에 비해 작을 수록 미끄러 지�
 var hp : float = 1
 var max_hp : float = 1
 
-var collision_rect : Rect2 
 var direction : Vector2
 var target_pos : Vector2
 
@@ -77,18 +76,13 @@ func _ready():
 	anim_sp.material = anim_sp.material.duplicate()
 	
 	area_collision.shape = RectangleShape2D.new()
-	collision.shape = RectangleShape2D.new()
+	#collision.shape = RectangleShape2D.new()
 	
 	#공격, 공격 감지 범위 collision 크기 위치 조정
 	for coll in [meleeAttack_collision, meleeAttack_detect_collision]:
 		coll.shape = RectangleShape2D.new()
 		coll.shape.size = meleeAttack_rect.size
 		coll.position = meleeAttack_rect.position
-
-	collision.shape.size = collision_rect.size
-	collision.position = collision_rect.position
-	area_collision.position = collision_rect.position
-	area_collision.shape.size = collision_rect.size + Vector2(0.5, 0.5)
 	
 	anim_sp.play("idle")
 	if attack_method == "projectile":
