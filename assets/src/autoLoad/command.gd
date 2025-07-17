@@ -256,10 +256,11 @@ func stylize_description(itemName : String, itemSubName : String, itemType : Str
 	# state는 이 아이템이 인벤에 있는 건지 drop아이템 상태인지 등등 판별
 	# state = "inventory" or "dropitem"
 	var result_text = "[b]<" + itemName + ">[/b][color=#747474] ㅣ" + itemType + "[/color]\n" +"[color=#747474]" + itemSubName + "[/color]" +"\n\n" + itemAbility + "\n\n[color=#999999]" + itemDes +"[/color]"
-	
 	if state == "dropitem":
 		result_text += "\n\n[img]res://assets/sprites/gui/buttons/key_f.png[/img] [b] 줍기[/b]"
 	elif state == "inventory":
 		result_text += "\n\n[img]res://assets/sprites/gui/buttons/key_q.png[/img] [b] 버리기[/b]"
+	elif state == "catalyst":
+		result_text += "\n\n[img]res://assets/sprites/gui/buttons/key_e.png[/img] [b] 넣기[/b]"
 		
 	return result_text

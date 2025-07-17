@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://pg00anxlg8wk"]
+
+[ext_resource type="Script" path="res://assets/src/gui/catalyst_slot.gd" id="1_4ba1i"]
+[ext_resource type="Texture2D" uid="uid://d3vyjye5jdc0l" path="res://assets/sprites/gui/panels/active_rect.png" id="2_20nbb"]
+
+[node name="catalyst_slot" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 22.0
+offset_bottom = 22.0
+script = ExtResource("1_4ba1i")
+
+[node name="panel" type="NinePatchRect" parent="."]
+layout_mode = 0
+offset_right = 22.0
+offset_bottom = 22.0
+texture = ExtResource("2_20nbb")
+patch_margin_left = 4
+patch_margin_top = 4
+patch_margin_right = 4
+patch_margin_bottom = 10
+
+[node name="display" type="Sprite2D" parent="."]
+position = Vector2(11, 11)
