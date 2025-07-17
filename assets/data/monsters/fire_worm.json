@@ -3,7 +3,6 @@
 	"speed" : 14.0,
 	"accel" : 0.4,
 	"detect_range" : 200,
-	"collision" : [0, 0, 25, 10.5],
 	"attack" : {
 		"delay" : 0.5,
 		"method" : "projectile",
@@ -11,14 +10,14 @@
 			"shoot_pos" : [19, -9.5],
 			"delay" : [4, 5],
 			"name" : "fire_ball",
-			"shoot_func" : "spread_circle_border",
+			"shoot_func" : "target_player",
 		},
 		"collision" : [15, 5, 30, 18],
 		"damage" : 1,
 		"knockback" : 8.5,
 	},
 	"animation" : {
-		"texture_pivot" : [0, -3],
+		"texture_pivot" : [0, -8],
 		"states" : ["idle", "death", "walk"],
 		"attack_frames" : [10],
 		"shoot_frames" : [10]

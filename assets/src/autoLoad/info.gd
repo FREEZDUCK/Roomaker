@@ -12,7 +12,7 @@ var player_attack_damage : float = 5.5
 
 var player_dash_delay : float = 0.83
 
-var slash_type : String = "ice"
+var slash_type : String = "basic"
 
 var player_knockback_force : float = 1.8
 var player_movement_speed : float = 55.0

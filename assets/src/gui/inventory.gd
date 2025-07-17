@@ -81,7 +81,7 @@ func _process(delta):
 		
 		if item_type == "active":
 			give_item_to_ui("")  # 슬롯 비웠으니 이미지 제거
-		Skill.call(item_data["drop_func"]["name"], item_data["drop_func"]["args"])
+		#Skill.call(item_data["drop_func"]["name"], item_data["drop_func"]["args"])
 
 func has_item(item_name : String):
 	for slot in slots:

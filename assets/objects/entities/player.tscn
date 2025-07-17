@@ -1,8 +1,9 @@
-[gd_scene load_steps=12 format=3 uid="uid://4a25m1l2e8h1"]
+[gd_scene load_steps=13 format=3 uid="uid://4a25m1l2e8h1"]
 
 [ext_resource type="Script" path="res://assets/src/objects/entities/player.gd" id="1_rih66"]
 [ext_resource type="SpriteFrames" uid="uid://cv3ui17or26d0" path="res://assets/animations/monsters/player.tres" id="2_h1xb3"]
 [ext_resource type="Shader" uid="uid://6jcd5ivo3p7s" path="res://assets/shaders/hit_flash.tres" id="2_ks7v5"]
+[ext_resource type="PackedScene" uid="uid://objqq24on4f2" path="res://assets/objects/gui/shadow.tscn" id="4_x0wpq"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_xw84m"]
 shader = ExtResource("2_ks7v5")
@@ -137,6 +138,9 @@ speed_scale = 3.0
 
 [node name="CM" type="CanvasModulate" parent="."]
 color = Color(1, 1, 0.882, 1)
+
+[node name="shadow" parent="." instance=ExtResource("4_x0wpq")]
+position = Vector2(0, 8)
 
 [connection signal="animation_finished" from="anim_sp" to="." method="_on_animation_finished"]
 [connection signal="area_entered" from="player" to="." method="_on_body_area_entered"]

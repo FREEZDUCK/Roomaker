@@ -22,7 +22,6 @@ func summon_monster(monster_name : String, pos : Vector2):
 	
 	monster.speed = monster_data["speed"]
 	monster.accel = monster_data["accel"]
-	monster.collision_rect = Rect2(monster_data["collision"][0], monster_data["collision"][1], monster_data["collision"][2], monster_data["collision"][3])
 	
 	monster.detect_range = monster_data["detect_range"]
 	
@@ -152,7 +151,7 @@ func give_item(item_name: String) -> bool:
 		return false
 
 	target_slot.held_itemName = item_name
-	Skill.call(item_data["equip_func"]["name"], item_data["equip_func"]["args"])
+	#Skill.call(item_data["equip_func"]["name"], item_data["equip_func"]["args"])
 	return true
 	
 # 넉백 주는 함수 / 넉백을 주게 만든 대상, 넉백 받는 대상, 넉백 파워

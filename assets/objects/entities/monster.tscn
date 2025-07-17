@@ -1,18 +1,21 @@
-[gd_scene load_steps=10 format=3 uid="uid://dxp0wcjcnnbqc"]
+[gd_scene load_steps=11 format=3 uid="uid://dxp0wcjcnnbqc"]
 
 [ext_resource type="Script" path="res://assets/src/objects/entities/monster.gd" id="1_dr73e"]
-[ext_resource type="SpriteFrames" uid="uid://bxaoa8ti5wog1" path="res://assets/animations/monsters/nacromancer.tres" id="2_fqs0a"]
 [ext_resource type="Shader" uid="uid://6jcd5ivo3p7s" path="res://assets/shaders/hit_flash.tres" id="2_tln2x"]
+[ext_resource type="SpriteFrames" uid="uid://dba18nnl82rp0" path="res://assets/animations/monsters/night_borne.tres" id="3_883ex"]
 [ext_resource type="Texture2D" uid="uid://tatf430r4uay" path="res://assets/sprites/gui/heart/full2.png" id="4_ftgm2"]
+[ext_resource type="PackedScene" uid="uid://objqq24on4f2" path="res://assets/objects/gui/shadow.tscn" id="5_pyxuf"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_lxfna"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_lx0gg"]
+radius = 5.0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_7depo"]
 shader = ExtResource("2_tln2x")
 shader_parameter/enabled = false
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_6h1mv"]
-size = Vector2(16.5, 12.25)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_jn1t8"]
+radius = 5.0
+height = 15.75
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xp3lm"]
 
@@ -28,28 +31,30 @@ script = ExtResource("1_dr73e")
 [node name="sight" type="RayCast2D" parent="."]
 
 [node name="coll" type="CollisionShape2D" parent="."]
-position = Vector2(0, 6)
-shape = SubResource("RectangleShape2D_lxfna")
+shape = SubResource("CircleShape2D_lx0gg")
 
 [node name="anim_sp" type="AnimatedSprite2D" parent="."]
 material = SubResource("ShaderMaterial_7depo")
-sprite_frames = ExtResource("2_fqs0a")
-frame_progress = 0.53718
+sprite_frames = ExtResource("3_883ex")
+animation = &"attack"
+offset = Vector2(-33, -11)
 
 [node name="monster" type="Area2D" parent="."]
 
 [node name="coll" type="CollisionShape2D" parent="monster"]
-position = Vector2(0, 5.125)
-shape = SubResource("RectangleShape2D_6h1mv")
+position = Vector2(0, -2.875)
+shape = SubResource("CapsuleShape2D_jn1t8")
 
 [node name="attack" type="Area2D" parent="."]
 
 [node name="coll" type="CollisionShape2D" parent="attack"]
+visible = false
 shape = SubResource("RectangleShape2D_xp3lm")
 
 [node name="detect_attack" type="Area2D" parent="."]
 
 [node name="coll" type="CollisionShape2D" parent="detect_attack"]
+visible = false
 shape = SubResource("RectangleShape2D_vfi7c")
 
 [node name="navi_timer" type="Timer" parent="."]
@@ -62,6 +67,9 @@ z_index = 4
 position = Vector2(0, 4.76837e-07)
 scale = Vector2(0.25, 0.227273)
 texture = ExtResource("4_ftgm2")
+
+[node name="shadow" parent="." instance=ExtResource("5_pyxuf")]
+position = Vector2(0, 5)
 
 [connection signal="animation_finished" from="anim_sp" to="." method="_on_animation_finished"]
 [connection signal="area_entered" from="monster" to="." method="_on_body_area_entered"]

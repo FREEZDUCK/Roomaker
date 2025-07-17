@@ -3,7 +3,6 @@
 	"speed" : 23.0,
 	"accel" : 10.0,
 	"detect_range" : 120,
-	"collision" : [0, 5, 18.5, 11],
 	"attack" : {
 		"delay" : 1.0,
 		"damage" : 1,
@@ -12,7 +11,7 @@
 		"collision" : [15, 8, 35, 30]
 	},
 	"animation" : {
-		"texture_pivot" : [-13, -8],
+		"texture_pivot" : [-13, -20.5],
 		"states" : ["idle", "death", "walk"],
 		"attack_frames" : [7]
 	}

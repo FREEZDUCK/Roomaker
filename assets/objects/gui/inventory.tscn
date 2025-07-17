@@ -63,7 +63,7 @@ layout_mode = 2
 layout_mode = 2
 
 [node name="item_des" parent="." instance=ExtResource("5_bncn7")]
-z_index = 1
+z_index = 5
 layout_mode = 1
 offset_left = -19.0
 offset_top = 7.0
@@ -97,6 +97,7 @@ offset_right = 176.0
 offset_bottom = 58.0
 
 [node name="des_back_panel" type="NinePatchRect" parent="."]
+z_index = 3
 layout_mode = 0
 offset_left = -25.0
 offset_right = 119.0
