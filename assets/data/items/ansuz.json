@@ -3,5 +3,13 @@
 	"subname": "신의 룬",
 	"des": "정체를 알 수 없는 존재가 손을 내민다.", 
 	"type": "passive",
-	"ability": "장착시 효과:\n플레이어이 전체적인 스텟이 상승\n그 대가로 최대체력이 1칸 감소"
+	"ability": "장착시 효과:\n플레이어이 전체적인 스텟이 상승\n그 대가로 최대체력이 1칸 감소",
+	"equip_func" : {
+		"name" : "ansuz_up",
+		"args" : [0],
+	},
+	"drop_func" : {
+		"name" : "ansuz_down",
+		"args" : [0]
+	}
 }

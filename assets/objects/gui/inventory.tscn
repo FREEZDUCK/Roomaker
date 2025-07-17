@@ -63,9 +63,9 @@ layout_mode = 2
 [node name="item_des" parent="." instance=ExtResource("5_bncn7")]
 z_index = 1
 layout_mode = 1
-offset_left = 4.0
+offset_left = -19.0
 offset_top = 7.0
-offset_right = 4.0
+offset_right = -19.0
 offset_bottom = 7.0
 back_trans = true
 
@@ -96,6 +96,7 @@ offset_bottom = 58.0
 
 [node name="des_back_panel" type="NinePatchRect" parent="."]
 layout_mode = 0
+offset_left = -25.0
 offset_right = 119.0
 offset_bottom = 130.0
 texture = ExtResource("4_nrqh8")

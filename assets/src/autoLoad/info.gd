@@ -12,6 +12,8 @@ var player_attack_damage : float = 5.5
 
 var player_dash_delay : float = 0.83
 
+var slash_type : String = "ice"
+
 var player_knockback_force : float = 1.8
 var player_movement_speed : float = 55.0
 
@@ -24,6 +26,9 @@ var room_in_player_pos : Vector2 = Vector2(0, 0)
 # 풀 스크린 온 오프 / 풀 스크린 키 = F11 or F
 var full_screen : bool = false
 func _process(_delta):
+	if player_hp > player_max_hp:
+		player_hp = player_max_hp
+	
 	if Input.is_action_just_pressed("full_screen"):
 		if full_screen:
 			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)

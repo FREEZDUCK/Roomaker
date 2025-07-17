@@ -1,0 +1,58 @@
+[gd_resource type="SpriteFrames" load_steps=8 format=3 uid="uid://r6ul6jhx8jai"]
+
+[ext_resource type="Texture2D" uid="uid://tuk0qai178wg" path="res://assets/sprites/particles/slash_ice.png" id="1_fuydk"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jdotp"]
+atlas = ExtResource("1_fuydk")
+region = Rect2(0, 0, 65, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k85ny"]
+atlas = ExtResource("1_fuydk")
+region = Rect2(65, 0, 65, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1swwa"]
+atlas = ExtResource("1_fuydk")
+region = Rect2(130, 0, 65, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m450k"]
+atlas = ExtResource("1_fuydk")
+region = Rect2(195, 0, 65, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sdf5b"]
+atlas = ExtResource("1_fuydk")
+region = Rect2(260, 0, 65, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iyrq7"]
+atlas = ExtResource("1_fuydk")
+region = Rect2(325, 0, 65, 64)
+
+[resource]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jdotp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k85ny")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1swwa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m450k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sdf5b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iyrq7")
+}],
+"loop": false,
+"name": &"play",
+"speed": 12.0
+}]

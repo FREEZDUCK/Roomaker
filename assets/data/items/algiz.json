@@ -3,5 +3,13 @@
 	"subname": "보호의 룬",
 	"des": "마지막까지 대지를 지키고자 했던 \n짐승의 흔적이다.",
 	"type": "passive",
-	"ability": "장착시 효과:\n30초 마다 소울 하트 0.5개 획득\n최대 2개까지 획득 가능" 
+	"ability": "장착시 효과:\n30초 마다 소울 하트를 0.5개 획득합니다.",
+	"equip_func" : {
+		"name" : "up_maxHp",
+		"args" : [10]
+	},
+	"drop_func" : {
+		"name" : "down_maxHp",
+		"args" : [10]
+	}
 }

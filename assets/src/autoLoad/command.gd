@@ -152,10 +152,9 @@ func give_item(item_name: String) -> bool:
 		return false
 
 	target_slot.held_itemName = item_name
+	Skill.call(item_data["equip_func"]["name"], item_data["equip_func"]["args"])
 	return true
 	
-	target_slot.held_itemName = item_name
-
 # 넉백 주는 함수 / 넉백을 주게 만든 대상, 넉백 받는 대상, 넉백 파워
 func apply_knockback(target_pos: Vector2, body: Node2D, force: float) -> void:
 	var direction = (body.global_position - target_pos).normalized()
